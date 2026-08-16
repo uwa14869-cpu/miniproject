@@ -216,11 +216,10 @@ with st.sidebar:
     dev_col1, dev_col2 = st.columns([1, 1.5])
     
     with dev_col1:
-        # 🖼️ รูปโปรไฟล์ผู้พัฒนา (ใช้รูปหมอจาก flaticon)
-        st.image(
-            "https://cdn-icons-png.flaticon.com/512/3774/3774299.png",
-            width=120,
-            cls="profile-img"
+        # 🖼️ รูปโปรไฟล์ผู้พัฒนา (ใช้ HTML img tag เพื่อไม่ให้ Error และให้ CSS ทำงาน)
+        st.markdown(
+            '<img src="jdk.jpg" class="profile-img" width="110" style="display: block; margin-left: auto; margin-right: auto; margin-top: 10px;">', 
+            unsafe_allow_html=True
         )
     
     with dev_col2:
@@ -228,7 +227,7 @@ with st.sidebar:
         st.markdown("""
         <div class="dev-card">
             <p class="dev-info"><strong>👤 ชื่อ:</strong> [นาย จิรศักดิ์ โมกกงจักร]</p>
-            <p class="dev-info"><strong>🆔 รหัส:</strong> [664245003 ]</p>
+            <p class="dev-info"><strong>🆔 รหัส:</strong> [664245003]</p>
             <p class="dev-info"><strong>📚 หมู่เรียน:</strong> [66/43]</p>
         </div>
         """, unsafe_allow_html=True)
