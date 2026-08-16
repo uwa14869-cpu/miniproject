@@ -115,13 +115,21 @@ st.markdown("""
     
     .dev-info {
         color: #cbd5e1 !important;
-        font-size: 0.9rem;
-        margin: 0.3rem 0 !important;
-        line-height: 1.4;
+        font-size: 0.95rem;
+        margin: 0.4rem 0 !important;
+        line-height: 1.5;
     }
     
     .dev-info strong {
         color: #ffffff !important;
+    }
+    
+    .profile-img {
+        border-radius: 50%;
+        border: 3px solid #14b8a6;
+        box-shadow: 0 4px 15px rgba(20, 184, 166, 0.3);
+        padding: 4px;
+        background-color: #ffffff;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -203,24 +211,25 @@ with st.sidebar:
     st.divider()
     
     # 👇 ส่วนข้อมูลผู้พัฒนา 👇
-    st.markdown("### 👨‍💻 ผู้พัฒนา")
+    st.markdown("### 👨‍⚕️ ผู้พัฒนา")
     
     dev_col1, dev_col2 = st.columns([1, 1.5])
     
     with dev_col1:
-        # 🖼️ รูปโปรไฟล์ (คุณสามารถเปลี่ยน URL เป็นไฟล์รูปของคุณเองได้ เช่น st.image("my_photo.jpg", width=110))
+        # 🖼️ รูปโปรไฟล์ผู้พัฒนา (ใช้รูปหมอจาก flaticon)
         st.image(
-            "https://api.dicebear.com/7.x/avataaars/svg?seed=NephroDeveloper&backgroundColor=14b8a6",
-            width=110
+            "https://cdn-icons-png.flaticon.com/512/3774/3774299.png",
+            width=120,
+            cls="profile-img"
         )
     
     with dev_col2:
         # ✏️ แก้ไขข้อมูลในวงเล็บ [...] ให้เป็นข้อมูลจริงของคุณ
-        st.markdown(f"""
+        st.markdown("""
         <div class="dev-card">
-            <p class="dev-info"><strong>📛 ชื่อ:</strong> [นาย จิรศักดิ์ โมกกงจักร]</p>
-            <p class="dev-info"><strong>🎓 รหัสนศ:</strong> [664245003]</p>
-            <p class="dev-info"><strong>🏫 มหาลัย:</strong> [ราชภัฏนครปฐม]</p>
+            <p class="dev-info"><strong>👤 ชื่อ:</strong> [นาย จิรศักดิ์ โมกกงจักร]</p>
+            <p class="dev-info"><strong>🆔 รหัส:</strong> [664245003 ]</p>
+            <p class="dev-info"><strong>📚 หมู่เรียน:</strong> [66/43]</p>
         </div>
         """, unsafe_allow_html=True)
     
