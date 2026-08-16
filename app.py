@@ -14,7 +14,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# CSS Styling
+# CSS Styling (รวมของเดิม + ของผู้พัฒนา)
 st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600&display=swap');
@@ -103,6 +103,26 @@ st.markdown("""
         width: 100%;
         font-weight: 600;
     }
+
+    /* --- CSS สำหรับส่วนข้อมูลผู้พัฒนา --- */
+    .dev-card {
+        background: rgba(255,255,255,0.05);
+        border-radius: 12px;
+        padding: 1rem;
+        border: 1px solid rgba(255,255,255,0.1);
+        margin-top: 10px;
+    }
+    
+    .dev-info {
+        color: #cbd5e1 !important;
+        font-size: 0.9rem;
+        margin: 0.3rem 0 !important;
+        line-height: 1.4;
+    }
+    
+    .dev-info strong {
+        color: #ffffff !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -181,7 +201,31 @@ with st.sidebar:
     โปรเจกต์นี้จัดทำขึ้นเพื่อการศึกษาในรายวิชา Data Science for Healthcare
     """)
     st.divider()
-    st.caption("© 2024 NephroAI Project")
+    
+    # 👇 ส่วนข้อมูลผู้พัฒนา 👇
+    st.markdown("### 👨‍💻 ผู้พัฒนา")
+    
+    dev_col1, dev_col2 = st.columns([1, 1.5])
+    
+    with dev_col1:
+        # 🖼️ รูปโปรไฟล์ (คุณสามารถเปลี่ยน URL เป็นไฟล์รูปของคุณเองได้ เช่น st.image("my_photo.jpg", width=110))
+        st.image(
+            "https://api.dicebear.com/7.x/avataaars/svg?seed=NephroDeveloper&backgroundColor=14b8a6",
+            width=110
+        )
+    
+    with dev_col2:
+        # ✏️ แก้ไขข้อมูลในวงเล็บ [...] ให้เป็นข้อมูลจริงของคุณ
+        st.markdown(f"""
+        <div class="dev-card">
+            <p class="dev-info"><strong>📛 ชื่อ:</strong> [นาย จิรศักดิ์ โมกกงจักร]</p>
+            <p class="dev-info"><strong>🎓 รหัสนศ:</strong> [664245003]</p>
+            <p class="dev-info"><strong>🏫 มหาลัย:</strong> [ราชภัฏนครปฐม]</p>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    st.divider()
+    st.caption("© 2025 NephroAI Project")
 
 # 3. ฟอร์มรับข้อมูล
 with st.form("ckd_assessment_form"):
@@ -246,7 +290,7 @@ if submitted:
         if pred == 1:
             st.markdown(f"""
             <div class="metric-card result-risk">
-                <h2 style="color:#b91c1c; margin:0;">️ มีความเสี่ยงต่อโรคไตเรื้อรัง</h2>
+                <h2 style="color:#b91c1c; margin:0;">⚠️ มีความเสี่ยงต่อโรคไตเรื้อรัง</h2>
                 <p style="font-size:1.3rem; color:#7f1d1d; margin:0.5rem 0;">
                     คะแนนความเสี่ยง: <b>{risk_pct:.1f}%</b>
                 </p>
